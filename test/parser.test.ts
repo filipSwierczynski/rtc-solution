@@ -4,7 +4,8 @@ import { parseLine } from "../src/parser";
 const mockObj = {sport: 'FOOTBALL', competition: 'UEFA', home: 'Juventus', away: 'PSG', status: 'PRE'}
 
 describe('parseLine', () => {
-    const line = 'evtId,sport,competition,1748500000000,home,away,status';
+    it('should turn a PRE row with not scores into an SportEvent object', () => {
+const line = 'evtId,sport,competition,1748500000000,home,away,status';
     expect(parseLine(line, mockObj)).toEqual({
         id: 'evtId',
         status: 'PRE',
@@ -19,4 +20,6 @@ describe('parseLine', () => {
             AWAY: { type: 'AWAY', name: 'PSG'}
         }
     })
+    })
+    
 })
