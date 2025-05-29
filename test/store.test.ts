@@ -13,7 +13,7 @@ const dummy = (id: string): SportEvent => ({
 describe('StateStore', () => {
     it('should mark vanished events as REMOVED and hide them', () => {
         const s = new StateStore();
-        s.ingest([dummy['1']]);
+        s.ingest([dummy('1')]);
         s.ingest([]);
         expect(s.all().get('1')!.status).toBe('REMOVED');
         expect(s.visible()).toHaveLength(0);

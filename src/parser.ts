@@ -7,7 +7,7 @@ export function parseLine(
   const parts = line.split(",");
   if (parts.length < 7) return null;
 
-  const [id, sportId, compId, startTime, homeId, awayId, statusId, scoreBlob] = parts;
+  const [id, sportId, compId, startTime, homeId, awayId, statusId, scoreBlob = ''] = parts;
 
   const sport = dict[sportId];
   const competition = dict[compId];
