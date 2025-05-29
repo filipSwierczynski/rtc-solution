@@ -20,8 +20,16 @@ export class StateStore {
 
             if (!prev || prev.status !== ev.status || JSON.stringify(prev.scores) !== JSON.stringify(ev.scores)) {
                 this.notify(ev, prev);
-            }
-        })
+            };
+        });
+
+        this.events.forEach(prev => {
+                if (!seen.has(prev.id) && prev.status !== 'REMOVED') {
+                    const removed = { ...prev, status: 'REMOVED'};
+                    this.events.set(prev.id, removed);
+                    this.notify(removed, prev);
+                }
+            })
     }
 
     visible() {
