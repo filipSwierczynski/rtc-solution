@@ -15,7 +15,7 @@ describe('StateStore', () => {
         const s = new StateStore();
         s.ingest([dummy['1']]);
         s.ingest([]);
-        expect(s.all().get('1')!.status.toBe('REMOVED'));
-        expect(s.visible().toHaveLength(0))
+        expect(s.all().get('1')!.status).toBe('REMOVED');
+        expect(s.visible()).toHaveLength(0);
     })
 })
